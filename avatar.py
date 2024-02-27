@@ -66,7 +66,7 @@ with leftColumn:
 
 with centerColumn:
     image_placeholder = st.empty()
-    image_placeholder.image("images/1.png")
+    image_placeholder.image("images/1.png", width=400)
     chat_input_placeholder = st.empty()
     voice_input_placeholder = st.empty()
 
@@ -129,18 +129,18 @@ with rightColumn:
                         if curr_time > time_offset_delay:
                             if curr_time > mouth_closed_threshold:
                                 image_placeholder.image(
-                                    animation_path + "0.png", width=image_width)
+                                    animation_path + "0.png", width=400)
                             time.sleep(curr_time-time_offset_delay)
                         else:
                             time.sleep(curr_time)
 
                         image_placeholder.image(
-                            animation_path + f"1.png", width=image_width)
+                            animation_path + f"1.png", width=400)
                     else:
                         image_placeholder.image(
-                            animation_path + "0.png", width=image_width)
+                            animation_path + "0.png", width=400)
                 print('done')
-                image_placeholder.image(animation_path + "1.png", width=image_width)
+                image_placeholder.image(animation_path + "1.png", width=400)
                 text_placeholder.markdown(" ")
             else:
                 text2speech(text)
