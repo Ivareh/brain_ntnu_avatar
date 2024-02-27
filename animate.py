@@ -1,8 +1,4 @@
 ### ANIMATION SETUP
-import time
-import queue
-import streamlit as st # library to create a web application
-
 ANIMATE = True
 time_offset_delay = 0.015
 speech_start_time = 1.5
