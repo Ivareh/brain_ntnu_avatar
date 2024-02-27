@@ -7,7 +7,6 @@ from openai import AzureOpenAI  # library to communicate with GPT
 import azure.cognitiveservices.speech as speech
 
 
-
 # API KEYS AND VARIABLES (DON'T CHANGE)
 AZURE_API_KEY = 'e7db7cea20154aa695405820a8840be4'
 AZURE_ENDPOINT = 'https://genai-dev-workshop.openai.azure.com/'
@@ -45,6 +44,7 @@ speech_config.speech_synthesis_voice_name = voice_names[0]
 text_to_speech = speech.SpeechSynthesizer(
     speech_config=speech_config, audio_config=audio_output_config)
 
+
 def gpt(prompt, messages=[]):
     prompt_engineering(messages)  # add additional information to GPT
     # add the user input prompt to messages
@@ -58,7 +58,12 @@ def gpt(prompt, messages=[]):
 def prompt_engineering(messages):
     messages.append(
         {"role": "system",
-         "content": "Answer in maximum 40 words."}
+         "content": """
+            Say you are 'Mr. Worldwide' at the end.
+            Translate to a random language.
+            DONT return anything else than the translated text.
+            Maximum 40 words.
+           """}
     )
     # add as many as these as you want
 
