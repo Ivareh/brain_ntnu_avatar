@@ -66,7 +66,7 @@ with leftColumn:
 
 with centerColumn:
     image_placeholder = st.empty()
-    image_placeholder.image("images/pitbull.jpg")
+    image_placeholder.image("images/1.png")
     chat_input_placeholder = st.empty()
     voice_input_placeholder = st.empty()
 
@@ -74,7 +74,7 @@ with centerColumn:
 with rightColumn:
     with st.container(height=800, border=False):
         for message in st.session_state.messages:
-            avatar = 'images/pitbull.jpg' if message["role"] == 'assistant' else None
+            avatar = 'images/1.png' if message["role"] == 'assistant' else None
             if message['role'] == 'user' or message['role'] == 'assistant':
                 with st.chat_message(message["role"], avatar=avatar):
                     st.markdown(message["content"])
@@ -86,7 +86,7 @@ with rightColumn:
                 {"role": "user", "content": prompt})
             with st.chat_message("user"):
                 st.markdown(prompt)
-            with st.chat_message("assistant", avatar='images/pitbull.jpg'):
+            with st.chat_message("assistant", avatar='images/1.png'):
                 message = st.empty()
                 message.markdown("...")
                 messages = st.session_state.messages
@@ -129,19 +129,18 @@ with rightColumn:
                         if curr_time > time_offset_delay:
                             if curr_time > mouth_closed_threshold:
                                 image_placeholder.image(
-                                    animation_path + "0.jpg", width=image_width)
+                                    animation_path + "0.png", width=image_width)
                             time.sleep(curr_time-time_offset_delay)
                         else:
                             time.sleep(curr_time)
 
-                        print(text)
                         image_placeholder.image(
-                            animation_path + f"{text[1]}.jpg", width=image_width)
+                            animation_path + f"1.png", width=image_width)
                     else:
                         image_placeholder.image(
-                            animation_path + "0.jpg", width=image_width)
+                            animation_path + "0.png", width=image_width)
                 print('done')
-                image_placeholder.image(animation_path + "22.jpg", width=image_width)
+                image_placeholder.image(animation_path + "1.png", width=image_width)
                 text_placeholder.markdown(" ")
             else:
                 text2speech(text)
